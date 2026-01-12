@@ -3,7 +3,7 @@
 
 import http from 'http';
 import fs from 'fs';
-
+x   
 const port = 3000;
 const server = http.createServer((req, res) => {
     console.log('Request received');
@@ -49,4 +49,3 @@ const server = http.createServer((req, res) => {
 server.listen(port, () => {
     console.log(`Server running at http://localhost:${port}/`);
 });
-

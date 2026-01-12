@@ -1,11 +1,19 @@
-import { createServer } from "http";
+import express, { json, static as staticFiles } from "express";
+const app = express();
 
-const server = createServer((req, res) => {
-    res.writeHead(200, { "Content-Type": "text/html" });
-    res.end("<h1>Hello from Node.js server!</h1>");
+app.use(json());
+
+app.use(staticFiles("public"));
+
+app.get("/hello", (req, res) => {
+    res.send("Hello from GET request!");
 });
 
-server.listen(3000, () => {
-    console.log("Node server running at http://localhost:3000");
+app.post("/submit", (req, res) => {
+    const name = req.body.name;
+    res.json({ message: `Hello ${name}, data received successfully!` });
 });
 
+app.listen(3000, () => {
+    console.log("Express server running at http://localhost:3000");
+});
