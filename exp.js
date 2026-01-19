@@ -55,10 +55,10 @@ app.use((req, res) => {
 }); */
 
 const arr = [
-  { id: 1, name: 'John' , role: 'admin'},
-  { id: 2, name: 'Jane',role: 'user' },
+  { id: 1, name: 'John', role: 'admin' },
+  { id: 2, name: 'Jane', role: 'user' },
   { id: 3, name: 'Doe', role: 'admin' },
-  {id: null, name: 'pradeep' },
+  { id: null, name: 'pradeep' },
 ];
 
 
@@ -101,6 +101,19 @@ app.get("/admin", (req, res) => {
 
   res.json(result);
 });
+
+app.get("/user", (req, res) => {
+  try {
+    const data = JSON.parse("invalid json");
+    res.send(data);
+  } catch (err) {
+    res.status(500).json({
+      message: "Something went wrong",
+      error: err,
+    });
+  }
+});
+
 
 /* app.get("/api/users/:id",(req,res)=>{
   const id = parseInt(req.params.id);

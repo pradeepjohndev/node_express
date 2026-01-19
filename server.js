@@ -14,6 +14,11 @@ app.post("/submit", (req, res) => {
     res.json({ message: `Hello ${name}, data received successfully!` });
 });
 
+app.get("/user", (req, res) => {
+  const data = JSON.parse("invalid json");
+  res.send(data);
+});
+
 app.listen(3000, () => {
     console.log("Express server running at http://localhost:3000");
 });
